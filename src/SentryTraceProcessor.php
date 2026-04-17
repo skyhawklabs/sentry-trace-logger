@@ -24,12 +24,12 @@ class SentryTraceProcessor implements ProcessorInterface
         $spanId = null;
 
         if ($span !== null) {
-            $traceId = $span->getTraceId()->toString();
-            $spanId = $span->getSpanId()->toString();
+            $traceId = (string)$span->getTraceId();
+            $spanId = (string)$span->getSpanId();
         } else {
             // Fall back to propagation context (set on every request even without a span)
             $hub->configureScope(function (Scope $scope) use (&$traceId): void {
-                $traceId = $scope->getPropagationContext()->getTraceId()->toString();
+                $traceId = (string)$scope->getPropagationContext()->getTraceId();
             });
         }
 
