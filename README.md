@@ -11,12 +11,12 @@ to correlate Sentry issues with surrounding log context.
 
 ## Install
 
-Private Bitbucket — add as a VCS repository in each app's `composer.json`:
+Public on GitHub but not on Packagist — add it as a VCS repository in each app's `composer.json` (no credentials needed):
 
 ```json
 {
   "repositories": [
-    { "type": "vcs", "url": "git@bitbucket.org:YOUR-WORKSPACE/sentry-trace-logger.git" }
+    { "type": "vcs", "url": "https://github.com/skyhawklabs/sentry-trace-logger.git" }
   ],
   "require": {
     "fidello/sentry-trace-logger": "^1.0"
